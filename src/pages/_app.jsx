@@ -43,7 +43,7 @@ class MyApp extends App {
     if (localStorage.getItem("theme")) {
       darkModeActive = localStorage.getItem("theme") === "dark"
     } else {
-      darkModeActive = nativeDarkModeActive
+      darkModeActive = !nativeDarkModeActive
     }
 
     // Enable/disable dark mode
