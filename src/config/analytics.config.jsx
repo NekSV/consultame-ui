@@ -5,7 +5,7 @@
 
 const ANALYTICS = {
   enabledAnalytics: false,
-  googleAnalyticsId: "G-XXXXXXXXXX"
+  googleAnalyticsId: "G-P2GYMY4SXY"
 }
 
 export default ANALYTICS
