@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start -p 8080",
     "lint": "next lint",
-    "format": "prettier --write ./src/**/*.{js,jsx}"
+    "format": "prettier --write ./src/**/*.{js,jsx}",
+    "deploy": "next build && gcloud app deploy"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",

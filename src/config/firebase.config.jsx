@@ -4,13 +4,13 @@
  */
 
 const FIREBASE = {
-  apiKey: "AIzaSyDPpk2xbxhxcM9BkT43sSsYajF1SO8ra9E",
-  authDomain: "ask-me-everything.firebaseapp.com",
-  projectId: "ask-me-everything",
-  storageBucket: "ask-me-everything.appspot.com",
-  messagingSenderId: "586857502501",
-  appId: "1:586857502501:web:2adc655597180065f92ccc",
-  measurementId: "G-Z6Y5TGQT4Y"
+  apiKey: "AIzaSyA48ZrYTnVoA98oWsjktZtb-9m0KdYQ_oc",
+  authDomain: "encuesta-tinmarin-946c0.firebaseapp.com",
+  projectId: "encuesta-tinmarin",
+  storageBucket: "encuesta-tinmarin.appspot.com",
+  messagingSenderId: "965942954093",
+  appId: "1:965942954093:web:e9024e25a619add3989764",
+  measurementId: "G-P2GYMY4SXY"
 }
 
 export default FIREBASE
