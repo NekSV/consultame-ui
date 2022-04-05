@@ -85,8 +85,8 @@ function LoginForm() {
     resolver: yupResolver(schema),
     // Define the default values for all input forms
     defaultValues: {
-      email: "admin@blueupcode.com",
-      password: "blueupcodeadmin"
+      email: "jorge.sidgo@gmail.com",
+      password: "jajasaludos2121"
     }
   })
 
@@ -172,15 +172,16 @@ function LoginForm() {
         />
       </Form.Group>
       {/* END Form Group */}
-      <div className="d-flex align-items-center justify-content-between">
+      <div className="d-flex flex-column">
         <span>
-          Don&apos;t have an account ? <Link href="/register">Sign Up</Link>
+          <Link className="my-3 text-danger" href="/register">Sign Up</Link>
         </span>
         <Button
           type="submit"
-          variant="label-primary"
+          variant="secondary"
           size="lg"
           width="widest"
+          className="btn-block"
           disabled={loading}
         >
           {loading ? (
