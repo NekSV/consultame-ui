@@ -16,6 +16,17 @@ class AddSurvey extends Component {
       { text: "Survey"},
       { text: "Surveys"},
     ])
+    this.getData()
+  }
+
+  getData() {
+    const data = await fetch('/api/survey-list');
+
+    const response = await data.json();
+
+    response.forEach(element => {
+      console.log(element);
+    });
   }
 
   render() {
