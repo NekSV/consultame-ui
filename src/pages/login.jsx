@@ -25,6 +25,11 @@ import Router from "next/router"
 import Link from "next/link"
 import Head from "next/head"
 import PAGE from "config/page.config"
+import Image from "next/image";
+
+const bgImage = "static/bg.jpg";
+const stLogoRow = "/static/logos_1.png";
+const ndLogoRow = "/static/logos_2.png";
 
 function LoginPage() {
   return (
@@ -32,33 +37,63 @@ function LoginPage() {
       <Head>
         <title>Login | {PAGE.siteName}</title>
       </Head>
-      <Container fluid>
-        <Row
-          noGutters
-          className="align-items-center justify-content-center h-100"
+      <Container className="d-flex m-0 p-0" fluid>
+        
+        <div
+          style={{
+            backgroundImage: `url(${bgImage})`,
+            backgroundSize: 'cover',
+          }}
+          className="d-flex flex-column flex-grow-1"
         >
-          <Col sm="8" md="6" lg="4" xl="3">
-            {/* BEGIN Portlet */}
-            <Portlet>
-              <Portlet.Body>
-                <div className="text-center mt-2 mb-4">
-                  {/* BEGIN Widget */}
-                  <Widget12
-                    display
-                    circle
-                    variant="label-primary"
-                    className="mb-4"
-                  >
-                    <FontAwesomeIcon icon={SolidIcon.faUserAlt} />
-                  </Widget12>
-                  {/* END Widget */}
-                </div>
-                <LoginForm />
-              </Portlet.Body>
-            </Portlet>
-            {/* END Portlet */}
-          </Col>
-        </Row>
+
+          <div
+            className="d-flex align-items-center justify-content-center py-5"
+          >
+            <img 
+              src={stLogoRow}
+              height={100}
+            />
+          </div>
+
+          <div
+            className="d-flex align-items-center justify-content-center flex-grow-1"
+          >
+            <Col sm="8" md="6" lg="4" xl="3">
+              {/* BEGIN Portlet */}
+              <Portlet>
+                <Portlet.Body>
+                  <div className="text-center mt-2 mb-4">
+                    {/* BEGIN Widget */}
+                    <Widget12
+                      display
+                      circle
+                      variant="label-primary"
+                      className="mb-4"
+                    >
+                      <FontAwesomeIcon icon={SolidIcon.faUserAlt} />
+                    </Widget12>
+                    {/* END Widget */}
+                  </div>
+                  <LoginForm />
+                </Portlet.Body>
+              </Portlet>
+              {/* END Portlet */}
+            </Col>
+          </div>
+
+          <div
+            className="d-flex align-items-center justify-content-center py-5"
+          >
+            <img 
+              src={ndLogoRow}
+              height={100}
+            />
+          </div>
+
+
+        </div>
+
       </Container>
     </Fragment>
   )
@@ -173,9 +208,9 @@ function LoginForm() {
       </Form.Group>
       {/* END Form Group */}
       <div className="d-flex flex-column">
-        <span>
-          <Link className="my-3 text-danger" href="/register">Sign Up</Link>
-        </span>
+        <div className="d-flex justify-content-end pb-3">
+          <Link className="my-3 text-danger" href="/register">Forgot password?</Link>
+        </div>
         <Button
           type="submit"
           variant="secondary"

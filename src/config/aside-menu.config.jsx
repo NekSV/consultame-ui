@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Badge } from "@blueupcode/components"
 import * as SolidIcon from "@fortawesome/free-solid-svg-icons"
-
+import * as RegularIcon from "@fortawesome/free-regular-svg-icons"
 /*
  * Menu Configuration
  * the object below is representation of the side navigation menu
@@ -14,6 +14,20 @@ const ASIDE_MENU = [
     icon: () => <FontAwesomeIcon icon={SolidIcon.faDesktop} />,
     addon: () => <Badge variant="success">new</Badge>,
     link: "/"
+  },
+  {
+    title: "Survey",
+    section: true
+  },
+  {
+    title: "Surveys",
+    icon: () => <FontAwesomeIcon icon={RegularIcon.faListAlt} />,
+    link: "/pages/surveys/add-survey"
+  },
+  {
+    title: "Add survey",
+    icon: () => <FontAwesomeIcon icon={RegularIcon.faPlusSquare} />,
+    link: "/pages/surveys/add-survey"
   },
   {
     title: "Elements",

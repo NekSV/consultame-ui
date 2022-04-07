@@ -3,15 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { asideToggle, sidemenuToggle } from "store/actions"
 import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
-import * as RegularIcon from "@fortawesome/free-regular-svg-icons"
 import * as SolidIcon from "@fortawesome/free-solid-svg-icons"
-import HeaderNotification from "./HeaderNotification"
 import HeaderBreadcrumb from "./HeaderBreadcrumb"
-import HeaderSearch from "./HeaderSearch"
-import HeaderAction from "./HeaderAction"
-import HeaderChat from "./HeaderChat"
 import HeaderUser from "./HeaderUser"
-import HeaderNav from "./HeaderNav"
 import Sticky from "react-stickynode"
 import PAGE from "config/page.config"
 
@@ -29,31 +23,9 @@ function HeaderComponent(props) {
         {/* BEGIN Header Holder */}
         <Header.Holder desktop>
           <Header.Container fluid>
-            <Header.Wrap>
-              <HeaderNav />
-            </Header.Wrap>
             <Header.Wrap block>
-              <HeaderSearch />
             </Header.Wrap>
             <Header.Wrap>
-              <HeaderNotification variant="label-primary" />
-              <HeaderChat variant="label-primary" className="ml-2" />
-              <Button
-                icon
-                variant="label-primary"
-                className="ml-2"
-                onClick={() => sidemenuToggle("agenda")}
-              >
-                <FontAwesomeIcon icon={RegularIcon.faCalendarAlt} />
-              </Button>
-              <Button
-                icon
-                variant="label-primary"
-                className="ml-2"
-                onClick={() => sidemenuToggle("setting")}
-              >
-                <FontAwesomeIcon icon={RegularIcon.faListAlt} />
-              </Button>
               <HeaderUser className="ml-2" />
             </Header.Wrap>
           </Header.Container>
@@ -67,9 +39,6 @@ function HeaderComponent(props) {
           <Header.Divider />
           <Header.Wrap block justify="start">
             <HeaderBreadcrumb />
-          </Header.Wrap>
-          <Header.Wrap>
-            <HeaderAction />
           </Header.Wrap>
         </Header.Container>
       </Header.Holder>
@@ -92,16 +61,6 @@ function HeaderComponent(props) {
               <Header.Brand>{PAGE.siteName}</Header.Brand>
             </Header.Wrap>
             <Header.Wrap>
-              <Button
-                icon
-                variant="flat-primary"
-                onClick={() => sidemenuToggle("agenda")}
-              >
-                <FontAwesomeIcon icon={RegularIcon.faCalendarAlt} />
-                <Button.Marker>
-                  <Marker type="dot" variant="success" />
-                </Button.Marker>
-              </Button>
               <HeaderUser className="ml-2" />
             </Header.Wrap>
           </Header.Container>

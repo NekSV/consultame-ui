@@ -39,7 +39,7 @@ class DashboardPage extends Component {
           <title>Dashboard | {PAGE.siteName}</title>
         </Head>
         <Container fluid>
-          <Row>
+          {/* <Row>
             <Col xs="12">
               <Widget33 />
             </Col>
@@ -104,7 +104,7 @@ class DashboardPage extends Component {
                 </Col>
               </Row>
             </Col>
-          </Row>
+          </Row> */}
         </Container>
       </Fragment>
     )
