@@ -7,13 +7,13 @@ const PAGE = {
   siteName: "Tin Marin - Encuesta",
   dashboardPagePath: "/",
   loginPagePath: "/login",
-  favicon: "/images/favicon.ico",
+  favicon: "/static/ico.ico",
   layout: {
     enableAside: true,
     enableHeader: true,
     enableFooter: true,
     enableScrolltop: true,
-    enableFloatButton: true
+    enableFloatButton: false
   }
 }
 

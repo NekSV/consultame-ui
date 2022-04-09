@@ -1,5 +1,4 @@
 import {
-  Row,
   Col,
   Form,
   Label,
@@ -25,6 +24,11 @@ import Router from "next/router"
 import Link from "next/link"
 import Head from "next/head"
 import PAGE from "config/page.config"
+import Image from "next/image";
+
+const bgImage = "static/bg.jpg";
+const stLogoRow = "/static/logos_1.png";
+const ndLogoRow = "/static/logos_2.png";
 
 function LoginPage() {
   return (
@@ -32,33 +36,68 @@ function LoginPage() {
       <Head>
         <title>Login | {PAGE.siteName}</title>
       </Head>
-      <Container fluid>
-        <Row
-          noGutters
-          className="align-items-center justify-content-center h-100"
+      <Container className="d-flex m-0 p-0" fluid>
+        
+        <div
+          style={{
+            backgroundImage: `url(${bgImage})`,
+            backgroundSize: 'cover',
+          }}
+          className="d-flex flex-column flex-grow-1"
         >
-          <Col sm="8" md="6" lg="4" xl="3">
-            {/* BEGIN Portlet */}
-            <Portlet>
-              <Portlet.Body>
-                <div className="text-center mt-2 mb-4">
-                  {/* BEGIN Widget */}
-                  <Widget12
-                    display
-                    circle
-                    variant="label-primary"
-                    className="mb-4"
-                  >
-                    <FontAwesomeIcon icon={SolidIcon.faUserAlt} />
-                  </Widget12>
-                  {/* END Widget */}
-                </div>
-                <LoginForm />
-              </Portlet.Body>
-            </Portlet>
-            {/* END Portlet */}
-          </Col>
-        </Row>
+
+          <div
+            className="d-flex align-items-center justify-content-center py-5"
+          >
+            <Image 
+              src={stLogoRow}
+              quality={100}
+              height={100}
+              width={250}
+              alt={''}
+            />
+          </div>
+
+          <div
+            className="d-flex align-items-center justify-content-center flex-grow-1"
+          >
+            <Col sm="8" md="6" lg="4" xl="3">
+              {/* BEGIN Portlet */}
+              <Portlet>
+                <Portlet.Body>
+                  <div className="text-center mt-2 mb-4">
+                    {/* BEGIN Widget */}
+                    <Widget12
+                      display
+                      circle
+                      variant="label-primary"
+                      className="mb-4"
+                    >
+                      <FontAwesomeIcon icon={SolidIcon.faUserAlt} />
+                    </Widget12>
+                    {/* END Widget */}
+                  </div>
+                  <LoginForm />
+                </Portlet.Body>
+              </Portlet>
+              {/* END Portlet */}
+            </Col>
+          </div>
+
+          <div
+            className="d-flex align-items-center justify-content-center py-5"
+          >
+            <Image 
+              src={ndLogoRow}
+              height={100}
+              width={850}
+              alt={''}
+            />
+          </div>
+
+
+        </div>
+
       </Container>
     </Fragment>
   )
@@ -72,12 +111,12 @@ function LoginForm() {
   const schema = yup.object().shape({
     email: yup
       .string()
-      .email("Your email is not valid")
-      .required("Please enter your email"),
+      .email("Email inválido")
+      .required("Ingrese su email"),
     password: yup
       .string()
-      .min(6, "Please enter at least 6 characters")
-      .required("Please provide your password")
+      .min(6, "Ingrese al menos 6 caracteres")
+      .required("Ingrese su contraseña")
   })
 
   const { control, handleSubmit } = useForm({
@@ -85,8 +124,8 @@ function LoginForm() {
     resolver: yupResolver(schema),
     // Define the default values for all input forms
     defaultValues: {
-      email: "admin@blueupcode.com",
-      password: "blueupcodeadmin"
+      email: "jorge.sidgo@gmail.com",
+      password: "jajasaludos2121"
     }
   })
 
@@ -128,7 +167,7 @@ function LoginForm() {
                 type="email"
                 id="email"
                 size="lg"
-                placeholder="Please insert your email"
+                placeholder="Ingrese su email"
                 name={name}
                 innerRef={ref}
                 invalid={invalid}
@@ -157,7 +196,7 @@ function LoginForm() {
                 type="password"
                 id="password"
                 size="lg"
-                placeholder="Please insert your password"
+                placeholder="Ingrese su contraseña"
                 name={name}
                 innerRef={ref}
                 invalid={invalid}
@@ -165,22 +204,23 @@ function LoginForm() {
                 onBlur={onBlur}
                 defaultValue={value}
               />
-              <Label for="password">Password</Label>
+              <Label for="password">Contraseña</Label>
               {invalid && <Form.Feedback>{error.message}</Form.Feedback>}
             </FloatLabel>
           )}
         />
       </Form.Group>
       {/* END Form Group */}
-      <div className="d-flex align-items-center justify-content-between">
-        <span>
-          Don&apos;t have an account ? <Link href="/register">Sign Up</Link>
-        </span>
+      <div className="d-flex flex-column">
+        <div className="d-flex justify-content-end pb-3">
+          <Link className="my-3 text-danger" href="/register">Olvidó su contraseña?</Link>
+        </div>
         <Button
           type="submit"
-          variant="label-primary"
+          variant="secondary"
           size="lg"
           width="widest"
+          className="btn-block"
           disabled={loading}
         >
           {loading ? (
@@ -189,7 +229,7 @@ function LoginForm() {
               className="mr-2"
             />
           ) : null}{" "}
-          Login
+          Iniciar Sesión
         </Button>
       </div>
     </Form>

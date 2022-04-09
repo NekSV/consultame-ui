@@ -75,6 +75,10 @@
   }
 }
 
+.content {
+  padding: 0 !important;
+}
+
 .resize-triggers {
   animation: 1ms resizeanim;
   visibility: hidden;

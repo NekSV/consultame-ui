@@ -4,7 +4,7 @@ import NProgress from "nprogress"
 
 class ProgressBar extends React.Component {
   static defaultProps = {
-    color: "#2196f3",
+    color: "#4c4a99",
     startPosition: 0.3,
     stopDelayMs: 200,
     height: 3,

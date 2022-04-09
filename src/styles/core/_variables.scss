@@ -35,10 +35,10 @@ $grays: map-merge(
 
 $blue:    #2196f3 !default;
 $indigo:  #3f51b5 !default;
-$purple:  #9c27b0 !default;
+$purple:  #4c4a99 !default;
 $pink:    #e91e63 !default;
 $red:     #f44336 !default;
-$orange:  #ff9800 !default;
+$orange:  #ee7716 !default;
 $yellow:  #ffeb3b !default;
 $green:   #4caf50 !default;
 $teal:    #009688 !default;
@@ -64,8 +64,8 @@ $colors: map-merge(
   $colors
 );
 
-$primary:       $blue !default;
-$secondary:     $gray-500 !default;
+$primary:       $orange !default;
+$secondary:     $purple !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
@@ -160,7 +160,7 @@ $body-color-dark:         $text-level-3-dark !default;
 // Links
 //
 // Style anchor elements.
-$link-color:                              theme-color("primary") !default;
+$link-color:                              theme-color("secondary") !default;
 $link-decoration:                         none !default;
 $link-hover-color:                        darken($link-color, 15%) !default;
 $link-hover-decoration:                   none !default;
