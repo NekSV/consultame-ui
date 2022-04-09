@@ -1,5 +1,4 @@
 import {
-  Row,
   Col,
   Form,
   Label,
@@ -50,9 +49,12 @@ function LoginPage() {
           <div
             className="d-flex align-items-center justify-content-center py-5"
           >
-            <img 
+            <Image 
               src={stLogoRow}
+              quality={100}
               height={100}
+              width={250}
+              alt={''}
             />
           </div>
 
@@ -85,9 +87,11 @@ function LoginPage() {
           <div
             className="d-flex align-items-center justify-content-center py-5"
           >
-            <img 
+            <Image 
               src={ndLogoRow}
               height={100}
+              width={850}
+              alt={''}
             />
           </div>
 
@@ -107,12 +111,12 @@ function LoginForm() {
   const schema = yup.object().shape({
     email: yup
       .string()
-      .email("Your email is not valid")
-      .required("Please enter your email"),
+      .email("Email inválido")
+      .required("Ingrese su email"),
     password: yup
       .string()
-      .min(6, "Please enter at least 6 characters")
-      .required("Please provide your password")
+      .min(6, "Ingrese al menos 6 caracteres")
+      .required("Ingrese su contraseña")
   })
 
   const { control, handleSubmit } = useForm({
@@ -163,7 +167,7 @@ function LoginForm() {
                 type="email"
                 id="email"
                 size="lg"
-                placeholder="Please insert your email"
+                placeholder="Ingrese su email"
                 name={name}
                 innerRef={ref}
                 invalid={invalid}
@@ -192,7 +196,7 @@ function LoginForm() {
                 type="password"
                 id="password"
                 size="lg"
-                placeholder="Please insert your password"
+                placeholder="Ingrese su contraseña"
                 name={name}
                 innerRef={ref}
                 invalid={invalid}
@@ -200,7 +204,7 @@ function LoginForm() {
                 onBlur={onBlur}
                 defaultValue={value}
               />
-              <Label for="password">Password</Label>
+              <Label for="password">Contraseña</Label>
               {invalid && <Form.Feedback>{error.message}</Form.Feedback>}
             </FloatLabel>
           )}
@@ -209,7 +213,7 @@ function LoginForm() {
       {/* END Form Group */}
       <div className="d-flex flex-column">
         <div className="d-flex justify-content-end pb-3">
-          <Link className="my-3 text-danger" href="/register">Forgot password?</Link>
+          <Link className="my-3 text-danger" href="/register">Olvidó su contraseña?</Link>
         </div>
         <Button
           type="submit"
@@ -225,7 +229,7 @@ function LoginForm() {
               className="mr-2"
             />
           ) : null}{" "}
-          Login
+          Iniciar Sesión
         </Button>
       </div>
     </Form>

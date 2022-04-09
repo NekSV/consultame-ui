@@ -11,10 +11,10 @@ import PAGE from "config/page.config"
 class AddSurvey extends Component {
 
   componentDidMount() {
-    this.props.pageChangeHeaderTitle("Surveys")
+    this.props.pageChangeHeaderTitle("Agregar encuesta")
     this.props.breadcrumbChange([
-      { text: "Survey"},
-      { text: "Surveys"},
+      { text: "Encuesta"},
+      { text: "Agregar encuesta"},
     ])
   }
 
@@ -22,14 +22,14 @@ class AddSurvey extends Component {
     return (
       <Fragment>
         <Head>
-        <title>Surveys | {PAGE.siteName}</title>
+        <title>Agregar encuesta | {PAGE.siteName}</title>
         </Head>
         <Container fluid>
           <Row className="mt-3">
             <Col md="12">
               <Portlet>
                 <Portlet.Header>
-                  <Portlet.Title>Surveys</Portlet.Title>
+                  <Portlet.Title>Agregar encuesta</Portlet.Title>
                 </Portlet.Header>
                 <Portlet.Body>
 

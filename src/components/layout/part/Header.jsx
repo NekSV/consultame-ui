@@ -1,4 +1,4 @@
-import { Header, Button, Marker } from "@blueupcode/components"
+import { Header, Button } from "@blueupcode/components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { asideToggle, sidemenuToggle } from "store/actions"
 import { bindActionCreators } from "redux"
@@ -10,7 +10,7 @@ import Sticky from "react-stickynode"
 import PAGE from "config/page.config"
 
 function HeaderComponent(props) {
-  const { headerTitle, sidemenuToggle, asideToggle } = props
+  const { headerTitle, asideToggle } = props
 
   return (
     <Header>

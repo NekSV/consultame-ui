@@ -16,16 +16,16 @@ const ASIDE_MENU = [
     link: "/"
   },
   {
-    title: "Survey",
+    title: "Encuesta",
     section: true
   },
   {
-    title: "Surveys",
+    title: "Encuestas",
     icon: () => <FontAwesomeIcon icon={RegularIcon.faListAlt} />,
-    link: "/pages/surveys/add-survey"
+    link: "/pages/surveys/surveys"
   },
   {
-    title: "Add survey",
+    title: "Agregar encuesta",
     icon: () => <FontAwesomeIcon icon={RegularIcon.faPlusSquare} />,
     link: "/pages/surveys/add-survey"
   },

@@ -4,13 +4,13 @@
  */
 
 const FIREBASE = {
-    apiKey: "AIzaSyA48ZrYTnVoA98oWsjktZtb-9m0KdYQ_oc",
-    authDomain: "encuesta-tinmarin-946c0.firebaseapp.com",
-    projectId: "encuesta-tinmarin",
-    storageBucket: "encuesta-tinmarin.appspot.com",
-    messagingSenderId: "965942954093",
-    appId: "1:965942954093:web:fe13b65460c9f453989764",
-    measurementId: "G-ETSWRCS9NV"
+    apiKey: process.env.NEXT_PUBLIC_API_KEY,
+    authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
+    projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+    storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
+    appId: process.env.NEXT_PUBLIC_APP_ID,
+    measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
 }
 
 export default FIREBASE
