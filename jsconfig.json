@@ -5,7 +5,8 @@
     "paths": {
       "@blueupcode/*": ["modules/*"],
       "@public/*": ["./public/*"],
-      "@constants/*": ["./constants/*"]
+      "@constants/*": ["./constants/*"],
+      "@styles/*": ["./styles/*"]
     }
   }
 }

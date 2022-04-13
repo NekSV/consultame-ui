@@ -1,6 +1,6 @@
 import withLayout from "components/layout/withLayout"
 import withAuth from "components/firebase/firebaseWithAuth"
-import { Col, Container, Portlet, Row, Table, Button } from "@blueupcode/components"
+import { Col, Container, Portlet, Row, Table, Button, Tooltip } from "@blueupcode/components"
 import { Fragment, useEffect } from "react"
 import { pageChangeHeaderTitle, breadcrumbChange } from "store/actions"
 import { bindActionCreators } from "redux"
@@ -51,15 +51,27 @@ const Surveys = (props) => {
                           <td>{x.id}</td>
                           <td>{x.steps.length}</td>
                           <td>
-                            <Button style={{ marginInlineEnd: '1em' }} icon circle variant="dark">
-                            <FontAwesomeIcon icon={SolidIcon.faEye} />
+                            <Button id="btn-watch" style={{ marginInlineEnd: '1em' }} icon circle variant="dark">
+                              <FontAwesomeIcon icon={SolidIcon.faEye} />
                             </Button>
-                            <Button style={{ marginInlineEnd: '1em' }} icon circle variant="info">
+                            <Tooltip.Uncontrolled target="btn-watch">
+                              Ver encuesta
+                            </Tooltip.Uncontrolled>
+
+
+                            <Button id="btn-edit" style={{ marginInlineEnd: '1em' }} icon circle variant="info">
                               <FontAwesomeIcon icon={SolidIcon.faEdit} />
                             </Button>
-                            <Button style={{ marginInlineEnd: '1em' }} icon circle variant="danger">
+                            <Tooltip.Uncontrolled target="btn-edit">
+                              Editar
+                            </Tooltip.Uncontrolled>
+
+                            <Button id="btn-delete" style={{ marginInlineEnd: '1em' }} icon circle variant="danger">
                               <FontAwesomeIcon icon={SolidIcon.faTrash} />
                             </Button>
+                            <Tooltip.Uncontrolled target="btn-delete">
+                              Eliminar
+                            </Tooltip.Uncontrolled>
                           </td>
                         </tr>
                       ))
