@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { firestoreClient } from 'components/firebase/fireStoreClient';
+import { firestoreClient } from '../components/firebase/firestoreClient';
 import 'firebase/firestore'
 
 export const useData = (collectionName) => {
