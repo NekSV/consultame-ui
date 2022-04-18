@@ -146,9 +146,8 @@ const AddSurvey = (props) => {
                             type="text"
                             defaultValue={item.title}
                           />
-                          {!!errors.steps &&
-                            <div className="">efe</div>
-                          }
+                          {errors?.steps?.[i]?.title && <p className="form-error">Required Field</p>}
+
 
                         </div>
 
@@ -162,7 +161,7 @@ const AddSurvey = (props) => {
                             type="text"
                             defaultValue={item.text}
                           />
-                          {!!errors.steps &&
+                          {!!errors &&
                             <div className="">efe</div>
                           }
                         </div>
