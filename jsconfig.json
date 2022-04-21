@@ -4,6 +4,7 @@
     "baseUrl": "./src/",
     "paths": {
       "@blueupcode/*": ["modules/*"],
+      "@components/*": ["components/*"],
       "@public/*": ["./public/*"],
       "@constants/*": ["./constants/*"],
       "@styles/*": ["./styles/*"]

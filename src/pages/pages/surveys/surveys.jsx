@@ -7,7 +7,7 @@ import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
 import Head from "next/head"
 import PAGE from "config/page.config"
-import { useData } from "hooks/useData"
+import useData from "hooks/useData"
 import * as SolidIcon from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 

@@ -13,6 +13,7 @@ import { useForm, Controller, FormProvider } from "react-hook-form"
 import * as yup from 'yup';
 import { yupResolver } from "components/validation/yupResolver"
 import StepsForm from "components/custom/StepsForm"
+import saveDoc from "utils/saveDoc"
 
 const AddSurvey = (props) => {
 
@@ -43,7 +44,24 @@ const AddSurvey = (props) => {
   }, [props])
 
   const onSubmit = async (data) => {
-    console.log(data.steps);
+
+    const steps = data.steps.map((item, i) => ({
+      ...item,
+      stepIdentifier: {
+        id: (i + 1)
+      }
+    }));
+
+    const survey = {
+      id: data.surveyId,
+      steps: steps
+    };
+
+    console.log(survey);
+
+    const lmao = await saveDoc('surveys', survey);
+
+    console.log(lmao);
   }
 
 
