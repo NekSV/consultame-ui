@@ -23,11 +23,43 @@ export const defaultSteps = [
 
 export const emptyStep = [
   {
-    answerFormat: {
-      type: ''
-    },
     text: '',
     title: '',
-    type: 'question'
+    type: 'single',
+    defaultValue: 0,
   }
-]
+];
+
+export const stepTypeOptions = [
+  {
+    text: 'Intro',
+    value: 'intro'
+  },
+  {
+    text: 'Pregunta',
+    value: 'question'
+  },
+  {
+    text: 'Completado',
+    value: 'completion'
+  }
+];
+
+export const answerFormatOptions = [
+  {
+    text: 'Opción única',
+    value: 'single'
+  },
+  {
+    text: 'Opción múltiple',
+    value: 'multiple'
+  },
+  {
+    text: 'Escala',
+    value: 'scale'
+  },
+  {
+    text: 'Número',
+    value: 'integer'
+  },
+];
