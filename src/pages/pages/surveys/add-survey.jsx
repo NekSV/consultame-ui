@@ -1,21 +1,26 @@
 import withLayout from "components/layout/withLayout"
 import withAuth from "components/firebase/firebaseWithAuth"
 import { Col, Container, Portlet, Row, FloatLabel, Input, Label, Button } from "@blueupcode/components"
-import { Fragment, useEffect } from "react"
+import { Fragment, useEffect, useState } from "react"
 import { pageChangeHeaderTitle, breadcrumbChange } from "store/actions"
 import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
 import Head from "next/head"
 import PAGE from "config/page.config"
-import { answerFormatOptions, defaultSteps, emptyStep } from "@constants/constants"
+import { defaultSteps } from "@constants/constants"
 import { Form } from "@blueupcode/components/index"
 import { useForm, Controller, FormProvider } from "react-hook-form"
 import * as yup from 'yup';
 import { yupResolver } from "components/validation/yupResolver"
 import StepsForm from "components/custom/StepsForm"
 import saveDoc from "utils/saveDoc"
+import { swal } from "components/swal/instance"
+import LoadingFiller from 'components/custom/LoadingFiller'
+import { mapSurvey } from "utils/utils"
 
 const AddSurvey = (props) => {
+
+  const [isLoading, setLoading] = useState(false);
 
   const formSchema = yup.object().shape({
     surveyId: yup.string().required('Ingrese un id para la encuesta'),
@@ -28,7 +33,10 @@ const AddSurvey = (props) => {
     ),
   });
 
-  const formOptions = { resolver: yupResolver(formSchema) };
+  const formOptions = {
+    // resolver: yupResolver(formSchema), 
+    defaultValues: { surveyId: '', steps: defaultSteps }
+  };
 
 
   const formContext = useForm(formOptions);
@@ -44,24 +52,42 @@ const AddSurvey = (props) => {
   }, [props])
 
   const onSubmit = async (data) => {
+    setLoading(true);
+    console.log('data', JSON.stringify(data));
 
-    const steps = data.steps.map((item, i) => ({
-      ...item,
-      stepIdentifier: {
-        id: (i + 1)
-      }
-    }));
+    const survey = mapSurvey(data);
 
-    const survey = {
-      id: data.surveyId,
-      steps: steps
-    };
+    console.log('survey', survey);
 
-    console.log(survey);
-
-    const lmao = await saveDoc('surveys', survey);
-
-    console.log(lmao);
+    saveDoc('surveys', survey)
+      .then(res => {
+        if (res.status == 'success') {
+          swal.fire({
+            icon: 'success',
+            title: 'Encuesta guardada exitosamente',
+            timer: 2000
+          });
+        } else {
+          swal.fire({
+            icon: 'error',
+            title: 'Error al guardar encuesta',
+            timer: 2000
+          });
+          console.log('survey-error', res.error)
+        }
+      })
+      .catch(err => {
+        swal.fire({
+          icon: 'error',
+          title: 'Error al guardar encuesta',
+          timer: 2000
+        });
+        console.log('survey-error', err)
+      })
+      .finally(() => {
+        setLoading(false);
+        formContext.reset();
+      })
   }
 
 
@@ -71,9 +97,12 @@ const AddSurvey = (props) => {
         <title>Agregar encuesta | {PAGE.siteName}</title>
       </Head>
       <Container fluid>
+
         <Row className="mt-3 d-flex justify-content-center">
           <Col md="8">
-
+            {isLoading &&
+              <LoadingFiller />
+            }
             <FormProvider {...formContext}>
               <Form onSubmit={formContext.handleSubmit(onSubmit)}>
                 <Portlet>

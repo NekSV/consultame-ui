@@ -1,12 +1,11 @@
-import { Portlet } from "@blueupcode/components"
-import { answerFormatOptions } from "@constants/constants";
-import { useEffect, useState } from "react";
+import { Portlet, Button } from "@blueupcode/components"
 import { useFormContext, Controller } from 'react-hook-form';
+import AnswerFormatForm from "./AnswerFormatForm";
 
-const Question = ({ item, index } = props) => {
+const Question = ({ item, index, removeStep } = props) => {
 
-  const { watch, control } = useFormContext();
-  const questionType = watch(`steps[${index}].type`);
+  const { control } = useFormContext();
+
 
   return (
     <Portlet className="mt-4">
@@ -14,14 +13,26 @@ const Question = ({ item, index } = props) => {
         <Portlet.Title>
           {index + 1}
         </Portlet.Title>
+
+        {!(['intro', 'completion'].includes(item.type)) &&
+          <Button
+            size="sm"
+            variant="label-danger"
+            onClick={() => removeStep(index)}
+          >
+            Remover
+          </Button>
+        }
+
+
       </Portlet.Header>
       <Portlet.Body>
+        {/* <h5 className="mb-4">Principal</h5> */}
         <div className="form-group">
           <label htmlFor={`steps[${index}].title`}>Titulo:</label>
           <Controller
             name={`steps[${index}].title`}
             control={control}
-            defaultValue={item.title}
             render={({ field }) => (
               <input
                 {...field}
@@ -38,7 +49,6 @@ const Question = ({ item, index } = props) => {
           <Controller
             name={`steps[${index}].text`}
             control={control}
-            defaultValue={item.text}
             render={({ field }) => (
               <input
                 {...field}
@@ -50,55 +60,9 @@ const Question = ({ item, index } = props) => {
           />
         </div>
 
+
         {!(['intro', 'completion'].includes(item.type)) &&
-          <>
-            <div className="form-group">
-              <label htmlFor={`steps[${index}].type`}>Tipo:</label>
-              <Controller
-                name={`steps[${index}].type`}
-                control={control}
-                defaultValue={item.type}
-                render={({
-                  field: { onChange, onBlur, value, name, ref },
-                }) => (
-                  <select
-                    name={name}
-                    ref={ref}
-                    onChange={onChange}
-                    onBlur={onBlur}
-                    value={value}
-                    className="form-control"
-                    id={`steps[${index}].type`}
-                    type="text"
-                  >
-                    {answerFormatOptions.map((x, i) => (
-                      <option key={i} value={x.value}>{x.text}</option>
-                    ))}
-                  </select>
-                )}
-              />
-            </div>
-
-            {questionType == 'integer' &&
-
-              <div className="form-group">
-                <label htmlFor={`steps[${index}].defaultValue`}>Valor por defecto:</label>
-                <Controller
-                  name={`steps[${index}].defaultValue`}
-                  control={control}
-                  defaultValue={item.defaultValue}
-                  render={({ field }) => (
-                    <input
-                      {...field}
-                      className="form-control"
-                      id={`steps[${index}].defaultValue`}
-                      type="text"
-                    />
-                  )}
-                />
-              </div>
-            }
-          </>
+            <AnswerFormatForm item={item} index={index} />
         }
       </Portlet.Body>
     </Portlet>
