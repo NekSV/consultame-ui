@@ -2,7 +2,9 @@ export const mapSurvey = (data) => {
   const steps = data.steps.map((x, i) => mapStep(x, i));
   return {
     id: data.surveyId,
-    steps: steps
+    rules: [],
+    steps: steps,
+    type: 'navigable'
   }
 };
 
@@ -15,7 +17,7 @@ export const mapStep = (step, index) => {
       case 'single':
         return {
           stepIdentifier: {
-            id: (index + 1)
+            id: `${(index + 1)}`
           },
           title: step.title,
           text: step.text,
@@ -28,7 +30,7 @@ export const mapStep = (step, index) => {
       case 'multiple':
         return {
           stepIdentifier: {
-            id: (index + 1)
+            id: `${(index + 1)}`
           },
           title: step.title,
           text: step.text,
@@ -41,7 +43,7 @@ export const mapStep = (step, index) => {
       case 'scale':
         return {
           stepIdentifier: {
-            id: (index + 1)
+            id: `${(index + 1)}`
           },
           title: step.title,
           text: step.text,
@@ -59,7 +61,7 @@ export const mapStep = (step, index) => {
       case 'integer':
         return {
           stepIdentifier: {
-            id: (index + 1)
+            id: `${(index + 1)}`
           },
           title: step.title,
           text: step.text,
@@ -73,10 +75,10 @@ export const mapStep = (step, index) => {
     }
   } else {
     return {
+      ...step,
       stepIdentifier: {
-        id: (index + 1)
+        id: `${(index + 1)}`
       },
-      ...step
     }
   }
 

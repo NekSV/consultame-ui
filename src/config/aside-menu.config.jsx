@@ -30,6 +30,15 @@ const ASIDE_MENU = [
     link: "/pages/surveys/add-survey"
   },
   {
+    title: "Dispositivos",
+    section: true
+  },
+  {
+    title: "Gestionar dispositivos",
+    icon: () => <FontAwesomeIcon icon={SolidIcon.faMobile} />,
+    link: "/pages/devices/manage-devices"
+  },
+  {
     title: "Elements",
     section: true
   },
