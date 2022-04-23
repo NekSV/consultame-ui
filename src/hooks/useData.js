@@ -11,6 +11,7 @@ const useData = (collectionName) => {
         snap.forEach(doc => {
           documents.push({ id: doc.id, ...doc.data() })
         });
+        console.log(documents);
         setDocs(documents);
       });
     return () => unsub();

@@ -7,6 +7,8 @@ import { connect } from "react-redux"
 import PAGE from "config/page.config"
 import Head from "next/head"
 import { Col, Container, Portlet, Row, Table, Button, Tooltip } from "@blueupcode/components"
+import useData from "hooks/useData"
+import 'firebase/firestore'
 
 const ManageDevices = (props) => {
 
@@ -19,6 +21,23 @@ const ManageDevices = (props) => {
       { text: "Gestionar dispositivos", },
     ])
   }, [props]);
+
+  // const getDevices = () => {
+  //   if (devices.length > 0) {
+  //     const resolved = devices.map(item => {
+  //       const surveyDoc = item.survey.get();
+  //       console.log(surveyDoc);
+  //       return {
+  //         ...item,
+  //         survey: surveyName.id
+  //       }
+
+  //     });
+      
+  //     return resolved;
+  //   }
+  //   return [];
+  // }
 
 
   return (
@@ -35,12 +54,14 @@ const ManageDevices = (props) => {
                 <Portlet.Title>Gestionar dispositivos</Portlet.Title>
               </Portlet.Header>
               <Portlet.Body>
-
                 <Table responsiveDown="md" className="text-nowrap mb-0">
                   <thead>
                     <tr>
-                      <th>Nombre</th>
-                      <th># de Preguntas</th>
+                      <th>Id</th>
+                      <th>Marca</th>
+                      <th>Modelo</th>
+                      <th>Dispositivo</th>
+                      <th>Encuesta</th>
                       <th></th>
                     </tr>
                   </thead>
@@ -48,15 +69,16 @@ const ManageDevices = (props) => {
                     {devices.length > 0
                       ? devices.map((x, i) => (
                         <tr key={i}>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
+                          <td>{x.id}</td>
+                          <td>{x.brand}</td>
+                          <td>{x.model}</td>
+                          <td>{x.device}</td>
+                          {/* <td>{x.survey}</td> */}
                           <td></td>
                         </tr>
                       ))
                       : <tr>
-                        <td colSpan={5} align="center">
+                        <td colSpan={6} align="center">
                           No hay datos disponibles.
                         </td>
                       </tr>
