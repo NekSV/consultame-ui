@@ -25,7 +25,6 @@ const AnswerFormatForm = ({ item, index } = props) => {
               value={value}
               className="form-control"
               id={`steps[${index}].answerFormat.type`}
-              type="text"
             >
               {answerFormatOptions.map((x, i) => (
                 <option key={i} value={x.value}>{x.text}</option>

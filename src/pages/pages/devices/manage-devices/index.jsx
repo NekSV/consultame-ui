@@ -6,8 +6,11 @@ import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
 import PAGE from "config/page.config"
 import Head from "next/head"
-import { Col, Container, Portlet, Row, Table, Button, Tooltip } from "@blueupcode/components"
+import Link from "next/link"
+import { Col, Container, Portlet, Row, Table, Button } from "@blueupcode/components"
 import useData from "hooks/useData"
+import * as SolidIcon from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import 'firebase/firestore'
 
 const ManageDevices = (props) => {
@@ -22,28 +25,30 @@ const ManageDevices = (props) => {
     ])
   }, [props]);
 
-  // const getDevices = () => {
-  //   if (devices.length > 0) {
-  //     const resolved = devices.map(item => {
-  //       const surveyDoc = item.survey.get();
-  //       console.log(surveyDoc);
-  //       return {
-  //         ...item,
-  //         survey: surveyName.id
-  //       }
+  const getDevices = () => {
+    if (devices.length > 0) {
+      const resolved = devices.map(item => {
+        const surveyDoc =
+          (item.survey !== null)
+            ? item.survey.id
+            : '';
+        return {
+          ...item,
+          survey: surveyDoc
+        }
 
-  //     });
-      
-  //     return resolved;
-  //   }
-  //   return [];
-  // }
+      });
+
+      return resolved;
+    }
+    return [];
+  }
 
 
   return (
     <Fragment>
       <Head>
-        <title>Encuestas | {PAGE.siteName}</title>
+        <title>Gestionar dispositivos | {PAGE.siteName}</title>
       </Head>
 
       <Container>
@@ -66,15 +71,24 @@ const ManageDevices = (props) => {
                     </tr>
                   </thead>
                   <tbody>
-                    {devices.length > 0
-                      ? devices.map((x, i) => (
+                    {getDevices().length > 0
+                      ? getDevices().map((x, i) => (
                         <tr key={i}>
                           <td>{x.id}</td>
                           <td>{x.brand}</td>
                           <td>{x.model}</td>
                           <td>{x.device}</td>
-                          {/* <td>{x.survey}</td> */}
-                          <td></td>
+                          <td>{x.survey}</td>
+                          <td>
+                            <Link
+                              href={`./manage-devices/${x.id}`}
+                              passHref
+                            >
+                              <Button id="btn-edit" style={{ marginInlineEnd: '1em' }} icon circle variant="info" type="button">
+                                <FontAwesomeIcon icon={SolidIcon.faEdit} />
+                              </Button>
+                            </Link>
+                          </td>
                         </tr>
                       ))
                       : <tr>

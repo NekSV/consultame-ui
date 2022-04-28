@@ -10,9 +10,8 @@ import * as RegularIcon from "@fortawesome/free-regular-svg-icons"
 
 const ASIDE_MENU = [
   {
-    title: "Dashboard",
-    icon: () => <FontAwesomeIcon icon={SolidIcon.faDesktop} />,
-    addon: () => <Badge variant="success">new</Badge>,
+    title: "Gráficos",
+    icon: () => <FontAwesomeIcon icon={SolidIcon.faChartPie} />,
     link: "/"
   },
   {
