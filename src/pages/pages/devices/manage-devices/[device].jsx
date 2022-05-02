@@ -61,7 +61,7 @@ const AssignSurvey = (props) => {
         title: 'Error al actualizar dispositivo',
         timer: 2000
       });
-      console.log('survey-error', err)
+      console.log('survey-error', err);
     }).finally(() => {
       setLoading(false);
       trigger();
