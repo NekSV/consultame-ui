@@ -7,7 +7,7 @@ import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
 import Head from "next/head"
 import PAGE from "config/page.config"
-import { useData } from "hooks/useData"
+import useData from "hooks/useData"
 import * as SolidIcon from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
@@ -51,7 +51,7 @@ const Surveys = (props) => {
                           <td>{x.id}</td>
                           <td>{x.steps.length}</td>
                           <td>
-                            <Button id="btn-watch" style={{ marginInlineEnd: '1em' }} icon circle variant="dark">
+                            <Button id="btn-watch" style={{ marginInlineEnd: '1em' }} icon circle variant="dark" type="button">
                               <FontAwesomeIcon icon={SolidIcon.faEye} />
                             </Button>
                             <Tooltip.Uncontrolled target="btn-watch">
@@ -59,14 +59,14 @@ const Surveys = (props) => {
                             </Tooltip.Uncontrolled>
 
 
-                            <Button id="btn-edit" style={{ marginInlineEnd: '1em' }} icon circle variant="info">
+                            <Button id="btn-edit" style={{ marginInlineEnd: '1em' }} icon circle variant="info" type="button">
                               <FontAwesomeIcon icon={SolidIcon.faEdit} />
                             </Button>
                             <Tooltip.Uncontrolled target="btn-edit">
                               Editar
                             </Tooltip.Uncontrolled>
 
-                            <Button id="btn-delete" style={{ marginInlineEnd: '1em' }} icon circle variant="danger">
+                            <Button id="btn-delete" style={{ marginInlineEnd: '1em' }} icon circle variant="danger" type="button">
                               <FontAwesomeIcon icon={SolidIcon.faTrash} />
                             </Button>
                             <Tooltip.Uncontrolled target="btn-delete">

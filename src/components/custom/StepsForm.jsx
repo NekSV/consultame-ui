@@ -7,20 +7,18 @@ import { defaultSteps, emptyStep } from "@constants/constants";
 
 const StepsForm = () => {
   const { control } = useFormContext();
-  const { fields, append, insert } = useFieldArray({ name: 'steps', control });
+  const { fields, remove, insert } = useFieldArray({
+    name: 'steps',
+    control
+  });
 
   const addStep = () => {
     insert((fields.length - 1), emptyStep);
   };
 
   const removeStep = (step) => {
-
+    remove(step);
   };
-
-  useEffect(() => {
-    append(...defaultSteps);
-  }, []);
-
 
   return (
     <Portlet className="mt-4">
@@ -33,7 +31,7 @@ const StepsForm = () => {
       <Portlet.Body>
 
         {fields.map((item, i) => (
-          <Question key={item.id} item={item} index={i} />
+          <Question key={item.id} item={item} index={i} removeStep={removeStep}/>
         ))
         }
 

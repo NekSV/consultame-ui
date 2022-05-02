@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { firestoreClient } from '../components/firebase/firestoreClient';
 import 'firebase/firestore'
 
-export const useData = (collectionName) => {
+const useData = (collectionName) => {
   const [docs, setDocs] = useState([]);
   useEffect(() => {
     const unsub = firestoreClient.collection(collectionName)
@@ -16,4 +16,6 @@ export const useData = (collectionName) => {
     return () => unsub();
   }, [collectionName]);
   return { docs }
-}
+};
+
+export default useData;

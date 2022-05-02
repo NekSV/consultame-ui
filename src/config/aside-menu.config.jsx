@@ -10,9 +10,8 @@ import * as RegularIcon from "@fortawesome/free-regular-svg-icons"
 
 const ASIDE_MENU = [
   {
-    title: "Dashboard",
-    icon: () => <FontAwesomeIcon icon={SolidIcon.faDesktop} />,
-    addon: () => <Badge variant="success">new</Badge>,
+    title: "Gráficos",
+    icon: () => <FontAwesomeIcon icon={SolidIcon.faChartPie} />,
     link: "/"
   },
   {
@@ -28,6 +27,15 @@ const ASIDE_MENU = [
     title: "Agregar encuesta",
     icon: () => <FontAwesomeIcon icon={RegularIcon.faPlusSquare} />,
     link: "/pages/surveys/add-survey"
+  },
+  {
+    title: "Dispositivos",
+    section: true
+  },
+  {
+    title: "Gestionar dispositivos",
+    icon: () => <FontAwesomeIcon icon={SolidIcon.faMobile} />,
+    link: "/pages/devices/manage-devices"
   },
   {
     title: "Elements",
