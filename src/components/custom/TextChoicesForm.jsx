@@ -37,13 +37,22 @@ const TextChoicesForm = ({ item, index } = props) => {
                 <Controller
                   name={`steps[${index}].answerFormat.textChoices[${j}].text`}
                   control={control}
-                  render={({ field }) => (
-                    <input
-                      {...field}
-                      className="form-control"
-                      id={`steps[${index}].answerFormat.textChoices[${j}].text`}
-                      type="text"
-                    />
+                  rules={{ required: true }}
+                  render={({
+                    field,
+                    fieldState: { error }
+                  }) => (
+                    <>
+                      <input
+                        {...field}
+                        className="form-control"
+                        id={`steps[${index}].answerFormat.textChoices[${j}].text`}
+                        type="text"
+                      />
+                      {!!error &&
+                        <span className="text-danger">Ingrese texto</span>
+                      }
+                    </>
                   )}
                 />
               </div>
@@ -56,13 +65,22 @@ const TextChoicesForm = ({ item, index } = props) => {
                 <Controller
                   name={`steps[${index}].answerFormat.textChoices[${j}].value`}
                   control={control}
-                  render={({ field }) => (
-                    <input
-                      {...field}
-                      className="form-control"
-                      id={`steps[${index}].answerFormat.textChoices[${j}].value`}
-                      type="text"
-                    />
+                  rules={{ required: true }}
+                  render={({
+                    field,
+                    fieldState: { error }
+                  }) => (
+                    <>
+                      <input
+                        {...field}
+                        className="form-control"
+                        id={`steps[${index}].answerFormat.textChoices[${j}].value`}
+                        type="text"
+                      />
+                      {!!error &&
+                        <span className="text-danger">Ingrese el valor</span>
+                      }
+                    </>
                   )}
                 />
               </div>

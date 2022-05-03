@@ -42,13 +42,22 @@ const AnswerFormatForm = ({ item, index } = props) => {
             <Controller
               name={`steps[${index}].answerFormat.defaultValue`}
               control={control}
-              render={({ field }) => (
-                <input
-                  {...field}
-                  className="form-control"
-                  id={`steps[${index}].answerFormat.defaultValue`}
-                  type="text"
-                />
+              rules={{ required: true }}
+              render={({
+                field,
+                fieldState: { error }
+              }) => (
+                <>
+                  <input
+                    {...field}
+                    className="form-control"
+                    id={`steps[${index}].answerFormat.defaultValue`}
+                    type="text"
+                  />
+                  {!!error &&
+                    <span className="text-danger">Ingrese un valor por defecto</span>
+                  }
+                </>
               )}
             />
           </div>
@@ -58,13 +67,22 @@ const AnswerFormatForm = ({ item, index } = props) => {
             <Controller
               name={`steps[${index}].answerFormat.hint`}
               control={control}
-              render={({ field }) => (
-                <input
-                  {...field}
-                  className="form-control"
-                  id={`steps[${index}].answerFormat.hint`}
-                  type="text"
-                />
+              rules={{ required: true }}
+              render={({
+                field,
+                fieldState: { error }
+              }) => (
+                <>
+                  <input
+                    {...field}
+                    className="form-control"
+                    id={`steps[${index}].answerFormat.hint`}
+                    type="text"
+                  />
+                  {!!error &&
+                    <span className="text-danger">Ingrese una sugerencia</span>
+                  }
+                </>
               )}
             />
           </div>
@@ -80,13 +98,22 @@ const AnswerFormatForm = ({ item, index } = props) => {
             <Controller
               name={`steps[${index}].answerFormat.defaultValue`}
               control={control}
-              render={({ field }) => (
-                <input
-                  {...field}
-                  className="form-control"
-                  id={`steps[${index}].answerFormat.defaultValue`}
-                  type="text"
-                />
+              rules={{ required: true }}
+              render={({
+                field,
+                fieldState: { error }
+              }) => (
+                <>
+                  <input
+                    {...field}
+                    className="form-control"
+                    id={`steps[${index}].answerFormat.defaultValue`}
+                    type="text"
+                  />
+                  {!!error &&
+                    <span className="text-danger">Ingrese un valor por defecto</span>
+                  }
+                </>
               )}
             />
           </div>
@@ -96,13 +123,22 @@ const AnswerFormatForm = ({ item, index } = props) => {
             <Controller
               name={`steps[${index}].answerFormat.maximumValue`}
               control={control}
-              render={({ field }) => (
-                <input
-                  {...field}
-                  className="form-control"
-                  id={`steps[${index}].answerFormat.maximumValue`}
-                  type="text"
-                />
+              rules={{ required: true }}
+              render={({
+                field,
+                fieldState: { error }
+              }) => (
+                <>
+                  <input
+                    {...field}
+                    className="form-control"
+                    id={`steps[${index}].answerFormat.maximumValue`}
+                    type="text"
+                  />
+                  {!!error &&
+                    <span className="text-danger">Ingrese el máximo</span>
+                  }
+                </>
               )}
             />
           </div>
@@ -112,13 +148,23 @@ const AnswerFormatForm = ({ item, index } = props) => {
             <Controller
               name={`steps[${index}].answerFormat.maximumValueDescription`}
               control={control}
-              render={({ field }) => (
-                <input
-                  {...field}
-                  className="form-control"
-                  id={`steps[${index}].answerFormat.maximumValueDescription`}
-                  type="text"
-                />
+              rules={{ required: true }}
+              render={({
+                field,
+                fieldState: { error }
+              }) => (
+                <>
+                  <input
+                    {...field}
+                    className="form-control"
+                    id={`steps[${index}].answerFormat.maximumValueDescription`}
+                    type="text"
+                  />
+                  {!!error &&
+                    <span className="text-danger">Ingrese descripción</span>
+                  }
+                </>
+
               )}
             />
           </div>
@@ -128,13 +174,23 @@ const AnswerFormatForm = ({ item, index } = props) => {
             <Controller
               name={`steps[${index}].answerFormat.minimumValue`}
               control={control}
-              render={({ field }) => (
-                <input
-                  {...field}
-                  className="form-control"
-                  id={`steps[${index}].answerFormat.minimumValue`}
-                  type="text"
-                />
+              rules={{ required: true }}
+              render={({
+                field,
+                fieldState: { error }
+              }) => (
+                <>
+                  <input
+                    {...field}
+                    className="form-control"
+                    id={`steps[${index}].answerFormat.minimumValue`}
+                    type="text"
+                  />
+                  {!!error &&
+                    <span className="text-danger">Ingrese el mínimo</span>
+                  }
+                </>
+
               )}
             />
           </div>
@@ -144,13 +200,22 @@ const AnswerFormatForm = ({ item, index } = props) => {
             <Controller
               name={`steps[${index}].answerFormat.minimumValueDescription`}
               control={control}
-              render={({ field }) => (
-                <input
-                  {...field}
-                  className="form-control"
-                  id={`steps[${index}].answerFormat.minimumValueDescription`}
-                  type="text"
-                />
+              rules={{ required: true }}
+              render={({
+                field,
+                fieldState: { error }
+              }) => (
+                <>
+                  <input
+                    {...field}
+                    className="form-control"
+                    id={`steps[${index}].answerFormat.minimumValueDescription`}
+                    type="text"
+                  />
+                  {!!error &&
+                    <span className="text-danger">Ingrese descripción</span>
+                  }
+                </>
               )}
             />
           </div>
@@ -160,13 +225,23 @@ const AnswerFormatForm = ({ item, index } = props) => {
             <Controller
               name={`steps[${index}].answerFormat.step`}
               control={control}
-              render={({ field }) => (
-                <input
-                  {...field}
-                  className="form-control"
-                  id={`steps[${index}].answerFormat.step`}
-                  type="text"
-                />
+              rules={{ required: true }}
+              render={({
+                field,
+                fieldState: { error }
+              }) => (
+                <>
+                  <input
+                    {...field}
+                    className="form-control"
+                    id={`steps[${index}].answerFormat.step`}
+                    type="text"
+                  />
+                  {!!error &&
+                    <span className="text-danger">Ingrese el incremento</span>
+                  }
+                </>
+
               )}
             />
           </div>
