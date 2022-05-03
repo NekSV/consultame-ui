@@ -1,5 +1,4 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Badge } from "@blueupcode/components"
 import * as SolidIcon from "@fortawesome/free-solid-svg-icons"
 import * as RegularIcon from "@fortawesome/free-regular-svg-icons"
 /*
@@ -10,9 +9,9 @@ import * as RegularIcon from "@fortawesome/free-regular-svg-icons"
 
 const ASIDE_MENU = [
   {
-    title: "Gráficos",
+    title: "Resultados",
     icon: () => <FontAwesomeIcon icon={SolidIcon.faChartPie} />,
-    link: "/"
+    link: "/pages/graphs/survey-graph"
   },
   {
     title: "Encuesta",
@@ -21,7 +20,7 @@ const ASIDE_MENU = [
   {
     title: "Encuestas",
     icon: () => <FontAwesomeIcon icon={RegularIcon.faListAlt} />,
-    link: "/pages/surveys/surveys"
+    link: "/pages/surveys"
   },
   {
     title: "Agregar encuesta",

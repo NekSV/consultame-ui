@@ -53,11 +53,9 @@ const AddSurvey = (props) => {
 
   const onSubmit = async (data) => {
     setLoading(true);
-    console.log('data', JSON.stringify(data));
 
     const survey = mapSurvey(data);
 
-    console.log('survey', survey);
 
     saveDoc('surveys', survey)
       .then(res => {

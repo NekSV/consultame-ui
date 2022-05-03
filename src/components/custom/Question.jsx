@@ -33,13 +33,24 @@ const Question = ({ item, index, removeStep } = props) => {
           <Controller
             name={`steps[${index}].title`}
             control={control}
-            render={({ field }) => (
-              <input
-                {...field}
-                className="form-control"
-                id={`steps[${index}].title`}
-                type="text"
-              />
+            rules={{ required: true }}
+            render={({
+              field,
+              fieldState: { error }
+            }) => (
+              <>
+                <input
+                  {...field}
+                  className="form-control"
+                  id={`steps[${index}].title`}
+                  type="text"
+                />
+
+                {!!error &&
+                  <span className="text-danger">Ingrese un título</span>
+                }
+              </>
+
             )}
           />
         </div>
@@ -49,20 +60,29 @@ const Question = ({ item, index, removeStep } = props) => {
           <Controller
             name={`steps[${index}].text`}
             control={control}
-            render={({ field }) => (
-              <input
-                {...field}
-                className="form-control"
-                id={`steps[${index}].text`}
-                type="text"
-              />
+            rules={{ required: true }}
+            render={({
+              field,
+              fieldState: { error }
+            }) => (
+              <>
+                <input
+                  {...field}
+                  className="form-control"
+                  id={`steps[${index}].text`}
+                  type="text"
+                />
+                {!!error &&
+                  <span className="text-danger">Ingrese texto</span>
+                }
+              </>
             )}
           />
         </div>
 
 
         {!(['intro', 'completion'].includes(item.type)) &&
-            <AnswerFormatForm item={item} index={index} />
+          <AnswerFormatForm item={item} index={index} />
         }
       </Portlet.Body>
     </Portlet>

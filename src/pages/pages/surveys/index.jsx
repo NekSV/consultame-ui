@@ -51,12 +51,12 @@ const Surveys = (props) => {
                           <td>{x.id}</td>
                           <td>{x.steps.length}</td>
                           <td>
-                            <Button id="btn-watch" style={{ marginInlineEnd: '1em' }} icon circle variant="dark" type="button">
+                            {/* <Button id="btn-watch" style={{ marginInlineEnd: '1em' }} icon circle variant="dark" type="button">
                               <FontAwesomeIcon icon={SolidIcon.faEye} />
                             </Button>
                             <Tooltip.Uncontrolled target="btn-watch">
                               Ver encuesta
-                            </Tooltip.Uncontrolled>
+                            </Tooltip.Uncontrolled> */}
 
 
                             <Button id="btn-edit" style={{ marginInlineEnd: '1em' }} icon circle variant="info" type="button">

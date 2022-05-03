@@ -6,6 +6,11 @@ const useDocument = (collection, doc) => {
   const [document, setDocument] = useState();
 
   const fetchDoc = useCallback(() => {
+
+    if (doc == null) {
+      setDocument(null);
+    }
+
     const ref = firestoreClient.collection(collection).doc(doc);
     ref.get().then((res) => {
       if (res.exists) {
