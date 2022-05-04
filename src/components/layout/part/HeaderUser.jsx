@@ -28,38 +28,7 @@ class HeaderUser extends Component {
       </Avatar>
     ),
     name: "Guest",
-    email: "No email",
-    count: 6,
-    navs: [
-      [
-        {
-          icon: () => <FontAwesomeIcon icon={RegularIcon.faAddressCard} />,
-          title: "Profile"
-        },
-        {
-          icon: () => <FontAwesomeIcon icon={RegularIcon.faComments} />,
-          title: "Messages"
-        },
-        {
-          icon: () => <FontAwesomeIcon icon={RegularIcon.faClone} />,
-          title: "Activities"
-        }
-      ],
-      [
-        {
-          icon: () => <FontAwesomeIcon icon={RegularIcon.faCalendarCheck} />,
-          title: "Tasks"
-        },
-        {
-          icon: () => <FontAwesomeIcon icon={RegularIcon.faStickyNote} />,
-          title: "Notes"
-        },
-        {
-          icon: () => <FontAwesomeIcon icon={RegularIcon.faBell} />,
-          title: "Notification"
-        }
-      ]
-    ]
+    navs: []
   }
 
   handleSignOut = () => {
@@ -103,7 +72,7 @@ class HeaderUser extends Component {
       <Dropdown.Uncontrolled {...attributes}>
         <Widget16 dropdown variant="flat-primary">
           <Widget16.Text>
-            Hi <strong>User</strong>
+            <strong>{email}</strong>
           </Widget16.Text>
           {/* BEGIN Avatar */}
           <Widget16.Avatar display variant="info">
@@ -155,7 +124,7 @@ class HeaderUser extends Component {
             </Portlet.Body>
             <Portlet.Footer bordered className="rounded-0">
               <Button variant="label-danger" onClick={this.handleSignOut}>
-                Sign out
+                Cerrar Sesión
               </Button>
             </Portlet.Footer>
           </Portlet>
