@@ -212,9 +212,9 @@ function LoginForm() {
       </Form.Group>
       {/* END Form Group */}
       <div className="d-flex flex-column">
-        <div className="d-flex justify-content-end pb-3">
+        {/* <div className="d-flex justify-content-end pb-3">
           <Link className="my-3 text-danger" href="/register">Olvidó su contraseña?</Link>
-        </div>
+        </div> */}
         <Button
           type="submit"
           variant="secondary"
