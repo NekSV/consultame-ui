@@ -3,9 +3,8 @@ import * as SolidIcon from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Button } from '@blueupcode/components'
 import { useEffect } from "react";
-import { remove } from "nprogress";
 
-const TextChoicesForm = ({ item, index } = props) => {
+const TextChoicesForm = ({ index } = props) => {
   const { control } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     name: `steps[${index}].answerFormat.textChoices`,

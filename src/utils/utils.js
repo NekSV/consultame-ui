@@ -20,7 +20,7 @@ export const mapStep = (step, index) => {
             id: `${(index + 1)}`
           },
           title: step.title,
-          text: step.text,
+          text: step.text??'',
           answerFormat: {
             type: 'single',
             textChoices: step.answerFormat.textChoices
@@ -33,7 +33,7 @@ export const mapStep = (step, index) => {
             id: `${(index + 1)}`
           },
           title: step.title,
-          text: step.text,
+          text: step.text??'',
           answerFormat: {
             type: 'single',
             textChoices: step.answerFormat.textChoices
@@ -46,7 +46,7 @@ export const mapStep = (step, index) => {
             id: `${(index + 1)}`
           },
           title: step.title,
-          text: step.text,
+          text: step.text??'',
           answerFormat: {
             type: 'scale',
             defaultValue: parseInt(step.answerFormat.defaultValue),
@@ -64,7 +64,7 @@ export const mapStep = (step, index) => {
             id: `${(index + 1)}`
           },
           title: step.title,
-          text: step.text,
+          text: step.text??'',
           answerFormat: {
             type: 'integer',
             defaultValue: parseInt(step.answerFormat.defaultValue),

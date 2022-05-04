@@ -252,7 +252,7 @@ const AnswerFormatForm = ({ item, index } = props) => {
       {(['single', 'multiple'].includes(questionType)) &&
 
         <>
-          <TextChoicesForm item={item} index={index} />
+          <TextChoicesForm index={index} />
         </>
       }
     </>
