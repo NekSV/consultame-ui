@@ -5,7 +5,7 @@
 
 const PAGE = {
   siteName: "Tin Marin - Encuesta",
-  dashboardPagePath: "/",
+  dashboardPagePath: "/pages/surveys",
   loginPagePath: "/login",
   favicon: "/static/ico.ico",
   layout: {
