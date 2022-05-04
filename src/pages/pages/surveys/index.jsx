@@ -10,6 +10,7 @@ import PAGE from "config/page.config"
 import useData from "hooks/useData"
 import * as SolidIcon from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Link from "next/link"
 
 const Surveys = (props) => {
 
@@ -57,21 +58,21 @@ const Surveys = (props) => {
                             <Tooltip.Uncontrolled target="btn-watch">
                               Ver encuesta
                             </Tooltip.Uncontrolled> */}
+                            <Link
+                              href={`surveys/edit/${x.id}`}
+                              passHref
+                            >
+                              <Button id="btn-edit" style={{ marginInlineEnd: '1em' }} icon circle variant="info" type="button">
+                                <FontAwesomeIcon icon={SolidIcon.faEdit} />
+                              </Button>
+                            </Link>
 
-
-                            <Button id="btn-edit" style={{ marginInlineEnd: '1em' }} icon circle variant="info" type="button">
-                              <FontAwesomeIcon icon={SolidIcon.faEdit} />
-                            </Button>
-                            <Tooltip.Uncontrolled target="btn-edit">
-                              Editar
-                            </Tooltip.Uncontrolled>
-
-                            <Button id="btn-delete" style={{ marginInlineEnd: '1em' }} icon circle variant="danger" type="button">
+                            {/* <Button id="btn-delete" style={{ marginInlineEnd: '1em' }} icon circle variant="danger" type="button">
                               <FontAwesomeIcon icon={SolidIcon.faTrash} />
                             </Button>
                             <Tooltip.Uncontrolled target="btn-delete">
                               Eliminar
-                            </Tooltip.Uncontrolled>
+                            </Tooltip.Uncontrolled> */}
                           </td>
                         </tr>
                       ))

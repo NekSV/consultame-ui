@@ -7,49 +7,65 @@ import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
 import Head from "next/head"
 import PAGE from "config/page.config"
-import { defaultSteps } from "@constants/constants"
 import { useForm, FormProvider } from "react-hook-form"
-import saveDoc from "utils/saveDoc"
+import editDoc from "utils/saveDoc"
 import { swal } from "components/swal/instance"
 import LoadingFiller from 'components/custom/LoadingFiller'
 import { mapSurvey } from "utils/utils"
 import SurveyForm from "@components/custom/SurveyForm"
+import useDocument from "hooks/useDocument"
 
-const AddSurvey = (props) => {
+import { useRouter } from "next/router"
 
+const EditSurvey = (props) => {
+
+  const router = useRouter();
+  const { id } = router.query;
+
+  const { document: surveyData, trigger } = useDocument('surveys', id);
   const [isLoading, setLoading] = useState(false);
 
-  const formOptions = {
-    defaultValues: { surveyId: '', steps: defaultSteps }
-  };
+  const formContext = useForm();
 
-  const formContext = useForm(formOptions);
+  const { reset } = formContext;
 
   useEffect(() => {
-    props.pageChangeHeaderTitle("Agregar encuesta")
+
+    if (!!surveyData) {
+      reset({
+        surveyId: surveyData.id,
+        steps: surveyData.steps
+      })
+    }
+
+  }, [surveyData])
+
+  useEffect(() => {
+    props.pageChangeHeaderTitle("Editar encuesta")
     props.breadcrumbChange([
       { text: "Encuesta" },
-      { text: "Agregar encuesta" },
+      { text: "Editar encuesta" },
     ]);
   }, [props]);
 
   const onSubmit = async (data) => {
     setLoading(true);
+    console.log(data);
 
     const survey = mapSurvey(data);
 
-    saveDoc('surveys', survey)
+    editDoc('surveys', survey)
       .then(res => {
         if (res.status == 'success') {
           swal.fire({
             icon: 'success',
-            title: 'Encuesta guardada exitosamente',
+            title: 'Encuesta actualizada exitosamente',
             timer: 2000
           });
         } else {
           swal.fire({
             icon: 'error',
-            title: 'Error al guardar encuesta',
+            title: 'Error al actualizar encuesta',
             timer: 2000
           });
           console.log('survey-error', res.error)
@@ -58,14 +74,14 @@ const AddSurvey = (props) => {
       .catch(err => {
         swal.fire({
           icon: 'error',
-          title: 'Error al guardar encuesta',
+          title: 'Error al actualizar encuesta',
           timer: 2000
         });
         console.log('survey-error', err)
       })
       .finally(() => {
         setLoading(false);
-        formContext.reset();
+        formContext.reset(data);
       })
   };
 
@@ -73,7 +89,7 @@ const AddSurvey = (props) => {
   return (
     <Fragment>
       <Head>
-        <title>Agregar encuesta | {PAGE.siteName}</title>
+        <title>Editar encuesta | {PAGE.siteName}</title>
       </Head>
       <Container fluid>
 
@@ -83,7 +99,7 @@ const AddSurvey = (props) => {
               <LoadingFiller />
             }
             <FormProvider {...formContext}>
-              <SurveyForm onSubmit={onSubmit} edit={false}/>
+              <SurveyForm onSubmit={onSubmit} edit={true}/>
             </FormProvider>
 
           </Col>
@@ -92,6 +108,7 @@ const AddSurvey = (props) => {
     </Fragment>
 
   );
+
 };
 
 function mapDispathToProps(dispatch) {
@@ -104,4 +121,4 @@ function mapDispathToProps(dispatch) {
 export default connect(
   null,
   mapDispathToProps
-)(withAuth(withLayout(AddSurvey)))
+)(withAuth(withLayout(EditSurvey)))

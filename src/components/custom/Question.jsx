@@ -60,10 +60,8 @@ const Question = ({ item, index, removeStep } = props) => {
           <Controller
             name={`steps[${index}].text`}
             control={control}
-            rules={{ required: true }}
             render={({
               field,
-              fieldState: { error }
             }) => (
               <>
                 <input
@@ -72,9 +70,6 @@ const Question = ({ item, index, removeStep } = props) => {
                   id={`steps[${index}].text`}
                   type="text"
                 />
-                {!!error &&
-                  <span className="text-danger">Ingrese texto</span>
-                }
               </>
             )}
           />
