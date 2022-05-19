@@ -17,10 +17,10 @@ const Surveys = (props) => {
   const { docs: surveys } = useData('surveys');
 
   useEffect(() => {
-    props.pageChangeHeaderTitle("Encuestas")
+    props.pageChangeHeaderTitle("Listar encuestas")
     props.breadcrumbChange([
       { text: "Encuesta" },
-      { text: "Encuestas" },
+      { text: "Listar encuestas" },
     ])
   }, [props]);
 
@@ -34,7 +34,7 @@ const Surveys = (props) => {
           <Col md="12">
             <Portlet>
               <Portlet.Header bordered>
-                <Portlet.Title>Encuestas</Portlet.Title>
+                <Portlet.Title>Listar encuestas</Portlet.Title>
               </Portlet.Header>
               <Portlet.Body>
                 <Table responsiveDown="md" className="text-nowrap mb-0">

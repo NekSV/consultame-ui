@@ -1,8 +1,9 @@
-import { useEffect } from "react";
 import { useFormContext, useFieldArray } from "react-hook-form";
 import { Portlet, Button } from "@blueupcode/components"
 import Question from "./Question";
-import { defaultSteps, emptyStep } from "@constants/constants";
+import { emptyStep } from "@constants/constants";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import * as SolidIcon from "@fortawesome/free-solid-svg-icons"
 
 
 const StepsForm = () => {
@@ -23,15 +24,16 @@ const StepsForm = () => {
   return (
     <Portlet className="mt-4">
       <Portlet.Header bordered>
-        <Portlet.Title>
-          Preguntas
+        <Portlet.Title className="d-flex justify-content-between">
+          <span>Preguntas</span>
+          <span className="text-muted"><small>Para agregar una pregunta haga clic en el botón inferior</small></span>
         </Portlet.Title>
       </Portlet.Header>
 
       <Portlet.Body>
 
         {fields.map((item, i) => (
-          <Question key={item.id} item={item} index={i} removeStep={removeStep}/>
+          <Question key={item.id} item={item} index={i} removeStep={removeStep} />
         ))
         }
 
@@ -40,11 +42,15 @@ const StepsForm = () => {
       <Portlet.Footer bordered>
         <Button
           type="button"
-          variant="label-secondary"
+          variant="success"
           width="widest"
           onClick={addStep}
         >
-          Agregar pregunta
+          <span className="mx-2">Agregar pregunta</span>
+          
+          <FontAwesomeIcon
+            icon={SolidIcon.faPlus}
+          />
         </Button>
       </Portlet.Footer>
     </Portlet>

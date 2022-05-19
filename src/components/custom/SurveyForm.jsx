@@ -1,11 +1,21 @@
 import { Portlet, FloatLabel, Input, Label, Button, Form } from "@blueupcode/components"
 import StepsForm from "components/custom/StepsForm"
+import { forwardRef, useRef, useImperativeHandle } from "react";
 import { Controller, useFormContext } from "react-hook-form"
+import BgForm from "./BgForm";
 
-const SurveyForm = ({ onSubmit, edit } = props) => {
+const SurveyForm = forwardRef(({ onSubmit, edit, handleImage } = props, ref) => {
 
   const { control, handleSubmit, formState } = useFormContext();
   const { errors } = formState;
+
+  const childImage = useRef();
+
+  useImperativeHandle(ref, () => ({
+    resetImage() {
+      childImage.current.resetImageForm();
+    }
+  }));
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -51,10 +61,18 @@ const SurveyForm = ({ onSubmit, edit } = props) => {
 
       <hr />
 
+      <BgForm
+        ref={childImage}
+        handleImage={handleImage}
+      />
+
+      <hr />
+
       <Button
         type="submit"
         variant="primary"
         width="widest"
+        className="mb-4"
       >
         Finalizar encuesta
       </Button>
@@ -62,6 +80,6 @@ const SurveyForm = ({ onSubmit, edit } = props) => {
     </Form>
   )
 
-};
+});
 
 export default SurveyForm;
