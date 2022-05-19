@@ -1,7 +1,8 @@
-export const mapSurvey = (data) => {
+export const mapSurvey = (data, imageUrl) => {
   const steps = data.steps.map((x, i) => mapStep(x, i));
   return {
     id: data.surveyId,
+    bg: imageUrl??'',
     rules: [],
     steps: steps,
     type: 'navigable'

@@ -3,7 +3,15 @@ import { useEffect, useState } from "react";
 
 const defaultOptions = {
   chart: {
-    background: "transparent"
+    background: "transparent",
+    toolbar: {
+      export: {
+        csv: {
+          headerCategory: 'Opcion',
+          heeaderValue: 'Resultado'
+        }
+      }
+    },
   },
   plotOptions: {
     bar: {
@@ -26,11 +34,11 @@ const BarGraph = ({ data, theme } = props) => {
   const [options, setOptions] = useState({
     theme: {
       mode: theme,
-      palette: "palette1"
+      palette: "palette2"
     },
     xaxis: {
       categories: data.map(x => x.label)
-    },
+    },    
     ...defaultOptions
   });
 
@@ -38,6 +46,7 @@ const BarGraph = ({ data, theme } = props) => {
     setSeries(
       [
         {
+          name: 'Resultado',
           data: data.map(x => x.value)
         }
       ]

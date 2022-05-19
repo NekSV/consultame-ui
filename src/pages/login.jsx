@@ -21,7 +21,6 @@ import * as yup from "yup"
 import verifyCookie from "components/firebase/firebaseVerifyCookie"
 import withLayout from "components/layout/withLayout"
 import Router from "next/router"
-import Link from "next/link"
 import Head from "next/head"
 import PAGE from "config/page.config"
 import Image from "next/image";

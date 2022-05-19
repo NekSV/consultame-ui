@@ -1,7 +1,7 @@
 import withLayout from "components/layout/withLayout"
 import withAuth from "components/firebase/firebaseWithAuth"
 import { Col, Container, Row } from "@blueupcode/components"
-import { Fragment, useEffect, useState } from "react"
+import { Fragment, useEffect, useRef, useState } from "react"
 import { pageChangeHeaderTitle, breadcrumbChange } from "store/actions"
 import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
@@ -18,12 +18,19 @@ import SurveyForm from "@components/custom/SurveyForm"
 const AddSurvey = (props) => {
 
   const [isLoading, setLoading] = useState(false);
+  const [surveyBg, setSurveyBg] = useState();
 
   const formOptions = {
     defaultValues: { surveyId: '', steps: defaultSteps }
   };
 
   const formContext = useForm(formOptions);
+
+  const handleImage = (image) => {
+    setSurveyBg(image);
+  };
+
+  const imageCompRef = useRef();
 
   useEffect(() => {
     props.pageChangeHeaderTitle("Agregar encuesta")
@@ -36,7 +43,7 @@ const AddSurvey = (props) => {
   const onSubmit = async (data) => {
     setLoading(true);
 
-    const survey = mapSurvey(data);
+    const survey = mapSurvey(data, surveyBg);
 
     saveDoc('surveys', survey)
       .then(res => {
@@ -66,6 +73,7 @@ const AddSurvey = (props) => {
       .finally(() => {
         setLoading(false);
         formContext.reset();
+        imageCompRef.current.resetImage();
       })
   };
 
@@ -83,7 +91,12 @@ const AddSurvey = (props) => {
               <LoadingFiller />
             }
             <FormProvider {...formContext}>
-              <SurveyForm onSubmit={onSubmit} edit={false}/>
+              <SurveyForm
+                ref={imageCompRef}
+                onSubmit={onSubmit}
+                edit={false}
+                handleImage={handleImage}
+              />
             </FormProvider>
 
           </Col>
