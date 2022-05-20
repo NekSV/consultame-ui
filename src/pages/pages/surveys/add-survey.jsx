@@ -18,7 +18,7 @@ import SurveyForm from "@components/custom/SurveyForm"
 const AddSurvey = (props) => {
 
   const [isLoading, setLoading] = useState(false);
-  const [surveyBg, setSurveyBg] = useState();
+  const [surveyBg, setSurveyBg] = useState('');
 
   const formOptions = {
     defaultValues: { surveyId: '', steps: defaultSteps }
