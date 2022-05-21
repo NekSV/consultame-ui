@@ -14,6 +14,9 @@ const SurveyForm = forwardRef(({ onSubmit, edit, handleImage } = props, ref) => 
   useImperativeHandle(ref, () => ({
     resetImage() {
       childImage.current.resetImageForm();
+    },
+    setImg(img) { 
+      childImage.current.setImg(img);
     }
   }));
 

@@ -16,14 +16,17 @@ const BgForm = forwardRef(({ handleImage } = props, ref) => {
       setUploadProgress(0);
       setImageUrl('');
       document.getElementById('surveyBg').value = '';
+    },
+
+    setImg(img) {
+      setImageUrl(img);
     }
   }));
-
 
   useEffect(() => {
     handleImage(imageUrl);
     console.log(imageUrl);
-  }, [imageUrl])
+  }, [imageUrl]);
 
   const validateFileType = (file) => {
     const validType = ['image/png', 'image/jpeg', 'image/jpg', 'image/bmp']
