@@ -25,7 +25,6 @@ const BgForm = forwardRef(({ handleImage } = props, ref) => {
 
   useEffect(() => {
     handleImage(imageUrl);
-    console.log(imageUrl);
   }, [imageUrl]);
 
   const validateFileType = (file) => {
