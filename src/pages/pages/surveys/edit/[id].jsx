@@ -39,6 +39,7 @@ const EditSurvey = (props) => {
   useEffect(() => {
 
     if (!!surveyData) {
+      imageCompRef.current.setImg(surveyData.bg);
       reset({
         surveyId: surveyData.id,
         steps: surveyData.steps
@@ -89,7 +90,6 @@ const EditSurvey = (props) => {
       .finally(() => {
         setLoading(false);
         formContext.reset(data);
-        imageCompRef.current.resetImage();
       })
   };
 
@@ -111,6 +111,7 @@ const EditSurvey = (props) => {
                 ref={imageCompRef}
                 onSubmit={onSubmit}
                 edit={true}
+                image={surveyBg}
                 handleImage={handleImage}
               />
             </FormProvider>
