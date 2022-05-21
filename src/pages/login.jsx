@@ -123,8 +123,8 @@ function LoginForm() {
     resolver: yupResolver(schema),
     // Define the default values for all input forms
     defaultValues: {
-      email: "jorge.sidgo@gmail.com",
-      password: "jajasaludos2121"
+      email: "",
+      password: ""
     }
   })
 
