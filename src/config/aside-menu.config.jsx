@@ -40,112 +40,112 @@ const ASIDE_MENU = [
   //   title: "Elements",
   //   section: true
   // },
-  {
-    title: "Base",
-    icon: () => <FontAwesomeIcon icon={SolidIcon.faPalette} />,
-    child: [
-      {
-        title: "Accordion",
-        bullet: true,
-        link: "/elements/base/accordion"
-      },
-      {
-        title: "Alert",
-        bullet: true,
-        link: "/elements/base/alert"
-      },
-      {
-        title: "Badge",
-        bullet: true,
-        link: "/elements/base/badge"
-      },
-      {
-        title: "Button",
-        bullet: true,
-        link: "/elements/base/button"
-      },
-      {
-        title: "Button Group",
-        bullet: true,
-        link: "/elements/base/button-group"
-      },
-      {
-        title: "Card",
-        bullet: true,
-        link: "/elements/base/card"
-      },
-      {
-        title: "Dropdown",
-        bullet: true,
-        link: "/elements/base/dropdown"
-      },
-      {
-        title: "Grid Navigation",
-        bullet: true,
-        link: "/elements/base/grid-nav"
-      },
-      {
-        title: "List Group",
-        bullet: true,
-        link: "/elements/base/list-group"
-      },
-      {
-        title: "Marker",
-        bullet: true,
-        link: "/elements/base/marker"
-      },
-      {
-        title: "Modal",
-        bullet: true,
-        link: "/elements/base/modal"
-      },
-      {
-        title: "Navigation",
-        bullet: true,
-        link: "/elements/base/nav"
-      },
-      {
-        title: "Pagination",
-        bullet: true,
-        link: "/elements/base/pagination"
-      },
-      {
-        title: "Popover",
-        bullet: true,
-        link: "/elements/base/popover"
-      },
-      {
-        title: "Progress",
-        bullet: true,
-        link: "/elements/base/progress"
-      },
-      {
-        title: "Spinner",
-        bullet: true,
-        link: "/elements/base/spinner"
-      },
-      {
-        title: "Tab",
-        bullet: true,
-        link: "/elements/base/tab"
-      },
-      {
-        title: "Table",
-        bullet: true,
-        link: "/elements/base/table"
-      },
-      {
-        title: "Tooltip",
-        bullet: true,
-        link: "/elements/base/tooltip"
-      },
-      {
-        title: "Typoghrapy",
-        bullet: true,
-        link: "/elements/base/type"
-      }
-    ]
-  },
+  // {
+  //   title: "Base",
+  //   icon: () => <FontAwesomeIcon icon={SolidIcon.faPalette} />,
+  //   child: [
+  //     {
+  //       title: "Accordion",
+  //       bullet: true,
+  //       link: "/elements/base/accordion"
+  //     },
+  //     {
+  //       title: "Alert",
+  //       bullet: true,
+  //       link: "/elements/base/alert"
+  //     },
+  //     {
+  //       title: "Badge",
+  //       bullet: true,
+  //       link: "/elements/base/badge"
+  //     },
+  //     {
+  //       title: "Button",
+  //       bullet: true,
+  //       link: "/elements/base/button"
+  //     },
+  //     {
+  //       title: "Button Group",
+  //       bullet: true,
+  //       link: "/elements/base/button-group"
+  //     },
+  //     {
+  //       title: "Card",
+  //       bullet: true,
+  //       link: "/elements/base/card"
+  //     },
+  //     {
+  //       title: "Dropdown",
+  //       bullet: true,
+  //       link: "/elements/base/dropdown"
+  //     },
+  //     {
+  //       title: "Grid Navigation",
+  //       bullet: true,
+  //       link: "/elements/base/grid-nav"
+  //     },
+  //     {
+  //       title: "List Group",
+  //       bullet: true,
+  //       link: "/elements/base/list-group"
+  //     },
+  //     {
+  //       title: "Marker",
+  //       bullet: true,
+  //       link: "/elements/base/marker"
+  //     },
+  //     {
+  //       title: "Modal",
+  //       bullet: true,
+  //       link: "/elements/base/modal"
+  //     },
+  //     {
+  //       title: "Navigation",
+  //       bullet: true,
+  //       link: "/elements/base/nav"
+  //     },
+  //     {
+  //       title: "Pagination",
+  //       bullet: true,
+  //       link: "/elements/base/pagination"
+  //     },
+  //     {
+  //       title: "Popover",
+  //       bullet: true,
+  //       link: "/elements/base/popover"
+  //     },
+  //     {
+  //       title: "Progress",
+  //       bullet: true,
+  //       link: "/elements/base/progress"
+  //     },
+  //     {
+  //       title: "Spinner",
+  //       bullet: true,
+  //       link: "/elements/base/spinner"
+  //     },
+  //     {
+  //       title: "Tab",
+  //       bullet: true,
+  //       link: "/elements/base/tab"
+  //     },
+  //     {
+  //       title: "Table",
+  //       bullet: true,
+  //       link: "/elements/base/table"
+  //     },
+  //     {
+  //       title: "Tooltip",
+  //       bullet: true,
+  //       link: "/elements/base/tooltip"
+  //     },
+  //     {
+  //       title: "Typoghrapy",
+  //       bullet: true,
+  //       link: "/elements/base/type"
+  //     }
+  //   ]
+  // },
   // {
   //   title: "Advanced",
   //   icon: () => <FontAwesomeIcon icon={SolidIcon.faAdjust} />,
