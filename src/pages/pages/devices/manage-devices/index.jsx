@@ -63,6 +63,7 @@ const ManageDevices = (props) => {
                   <thead>
                     <tr>
                       <th>Id</th>
+                      <th>Etiqueta</th>
                       <th>Marca</th>
                       <th>Modelo</th>
                       <th>Dispositivo</th>
@@ -75,6 +76,7 @@ const ManageDevices = (props) => {
                       ? getDevices().map((x, i) => (
                         <tr key={i}>
                           <td>{x.id}</td>
+                          <td>{x.label}</td>
                           <td>{x.brand}</td>
                           <td>{x.model}</td>
                           <td>{x.device}</td>
